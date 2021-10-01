@@ -11,6 +11,100 @@
 }
 .game-window {
   height: 100%;
-  width: 50vw;
-  background: red;
+  width: 60vw;
+
+  border-right: 5px solid black;
+  border-left: 5px solid black;
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+}
+.boxs-types {
+  width: 20vw;
+  height: 100%;
+  background: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.block {
+  width: 5vmax;
+  height: 5vmax;
+  margin-top: 5%;
+}
+.block .counter {
+  width: 5%;
+  height: 10%;
+  background: white;
+  color: blue;
+  opacity: 0.8;
+  font-size: 2vmax;
+}
+.hover {
+  background: transparent;
+}
+.hover:hover {
+  border: blue 1px solid;
+  opacity: 0.7;
+}
+
+.cloud {
+  background: url("http://itc.yananas.com/git/minecraft/images/cloud.png")
+    no-repeat center center/cover;
+}
+.ground {
+  background: url("http://itc.yananas.com/git/minecraft/images/dirt.png")
+    no-repeat center center/cover;
+}
+.grass {
+  background: url("http://itc.yananas.com/git/minecraft/images/grass.png")
+    no-repeat center center/cover;
+}
+.wood {
+  background: url("http://itc.yananas.com/git/minecraft/images/tree.png")
+    no-repeat center center/cover;
+}
+.tree-leaves {
+  background: url("http://itc.yananas.com/git/minecraft/images/leaf2.png")
+    no-repeat center center/cover;
+}
+.rock {
+  background: url("http://itc.yananas.com/git/minecraft/images/rock.png")
+    no-repeat center center/cover;
+}
+.lava {
+  background: url("http://itc.yananas.com/git/minecraft/images/lava.png")
+    no-repeat center center/cover;
+}
+.empty {
+  background: rgb(44, 222, 245);
+}
+
+/* work items */
+
+.worck-items {
+  width: 20vw;
+  height: 100%;
+  background: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item {
+  width: 5vmax;
+  height: 5vmax;
+  margin-top: 5%;
+}
+.axe {
+  background: url("http://itc.yananas.com/git/minecraft/images/axe.png")
+    no-repeat center center/cover;
+}
+.pickaxe {
+  background: url("http://itc.yananas.com/git/minecraft/images/pickaxe.png")
+    no-repeat center center/cover;
+}
+.shovel {
+  background: url("http://itc.yananas.com/git/minecraft/images/shovel.png")
+    no-repeat center center/cover;
 }
