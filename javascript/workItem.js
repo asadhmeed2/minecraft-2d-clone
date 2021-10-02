@@ -14,11 +14,31 @@ const lava = document.querySelector('.lava');
 
 
 function itemChoosing(itemName) {
-    chosingItem = itemName;
-    console.log(chosingItem);
+    if(chosingItem.length>0){
+
+        let lastChosingItem =document.querySelector(`.${chosingItem}`);
+        let nextChosingItem = document.querySelector(`.${itemName}`);
+        lastChosingItem.classList.remove('active');
+        nextChosingItem.classList.add('active');
+        chosingItem = itemName;
+        
+    }else{
+        let nextChosingItem = document.querySelector(`.${itemName}`);
+        console.log(nextChosingItem);
+        nextChosingItem.classList.add('active');
+        chosingItem = itemName;
+    }
+
+
+    
+
 }
 
 export function addEventToWorkItems() {
+    if(chosingItem.length>0){
+        let lastChosingItem = document.querySelector(`.${chosingItem}`);
+        lastChosingItem.classList.remove('active');
+    }
    chosingItem = "";
 
     axe.addEventListener('click', () => itemChoosing("axe"));
