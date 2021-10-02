@@ -157,4 +157,12 @@
   border: solid 3px black;
   padding: 1vmax;
   border-radius: 15px;
+  transition: ease-in-out 100ms all;
+  cursor: pointer;
+  margin-top: 20vmax;
+}
+.reload:hover {
+  background: black;
+  color: white;
+  transition: all 500ms ease-in-out;
 }
