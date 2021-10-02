@@ -53,21 +53,18 @@ function addElement(type, gameBoard, row, column) {
 
 
 export function addEventToGrid(gameBoard) {
-    console.log(gameBoard);
-    let matrials = document.querySelectorAll('.matrial')
-    let blocks = Array.from(matrials);
-    blocks.map((e) => {
-        e.addEventListener('click', clickHandle)
-    })
+    
+    gameBoard.addEventListener('click', clickHandle);
+    
 }
 
 function clickHandle(e) {
     console.log(e.target.classList);
-    
-    
+
+
     // let cloudCount = document.querySelector('.cloud-count');
-    
-    switch(chosingItem){
+
+    switch (chosingItem) {
         case 'axe':
             useAxe(e);
             break;
@@ -99,24 +96,24 @@ function clickHandle(e) {
         case 'lava':
             changeIfIsNotEmpty(e, 'lava');
             break;
-        
+
     }
 }
 
 
-function useAxe(e){
+function useAxe(e) {
 
-    if (e.target.classList.contains("tree-leaves") ){
-        
+    if (e.target.classList.contains("tree-leaves")) {
+
         let treeLeavesCount = document.querySelector('.tree-leaves-count');
         e.target.classList.remove('tree-leaves');
         e.target.classList.add('empty');
         let counterStr = treeLeavesCount.textContent;
-        counterStr = parseInt(counterStr)+1+"";
+        counterStr = parseInt(counterStr) + 1 + "";
         treeLeavesCount.textContent = counterStr;
-       
 
-    } else if (e.target.classList.contains("wood")){
+
+    } else if (e.target.classList.contains("wood")) {
         let woodCount = document.querySelector('.wood-count');
         e.target.classList.remove('wood');
         e.target.classList.add('empty');
@@ -125,55 +122,54 @@ function useAxe(e){
         woodCount.textContent = counterStr;
     }
 }
-function useShove(e){
+function useShove(e) {
 
-    if (e.target.classList.contains("ground") )
-    {
+    if (e.target.classList.contains("ground")) {
         let groundCount = document.querySelector('.ground-count');
         e.target.classList.remove('ground');
         e.target.classList.add('empty');
         let counterStr = groundCount.textContent;
         counterStr = parseInt(counterStr) + 1 + "";
         groundCount.textContent = counterStr;
-    }else
-    if(e.target.classList.contains("grass")){
-        let grassCount = document.querySelector('.grass-count');
-        e.target.classList.remove('grass');
-        e.target.classList.add('empty');
-        let counterStr = grassCount.textContent;
-        counterStr = parseInt(counterStr) + 1 + "";
-        grassCount.textContent = counterStr;
+    } else
+        if (e.target.classList.contains("grass")) {
+            let grassCount = document.querySelector('.grass-count');
+            e.target.classList.remove('grass');
+            e.target.classList.add('empty');
+            let counterStr = grassCount.textContent;
+            counterStr = parseInt(counterStr) + 1 + "";
+            grassCount.textContent = counterStr;
 
+        }
+}
+function usePickaxe(e) {
+
+    if (e.target.classList.contains("rock")) {
+        let rocksCount = document.querySelector('.rock-count');
+        e.target.classList.remove('rock');
+        e.target.classList.add('empty');
+        let counterStr = rocksCount.textContent;
+        counterStr = parseInt(counterStr) + 1 + "";
+        rocksCount.textContent = counterStr;
+    }
+    if (e.target.classList.contains("lava")) {
+        let lavaCount = document.querySelector('.lava-count');
+        e.target.classList.remove('lava');
+        e.target.classList.add('empty');
+        let counterStr = lavaCount.textContent;
+        counterStr = parseInt(counterStr) + 1 + "";
+        lavaCount.textContent = counterStr;
     }
 }
-function usePickaxe(e){
-
-    if (e.target.classList.contains("rock") ){
-    let rocksCount = document.querySelector('.rock-count');
-    e.target.classList.remove('rock');
-    e.target.classList.add('empty');
-    let counterStr = rocksCount.textContent;
-    counterStr = parseInt(counterStr) + 1 + "";
-    rocksCount.textContent = counterStr;
-}
-if( e.target.classList.contains("lava")){
-    let lavaCount = document.querySelector('.lava-count');
-    e.target.classList.remove('lava');
-    e.target.classList.add('empty');
-    let counterStr = lavaCount.textContent;
-    counterStr = parseInt(counterStr) + 1 + "";
-    lavaCount.textContent = counterStr;
-}
-}
-function changeIfIsNotEmpty(e,type){
+function changeIfIsNotEmpty(e, type) {
     let count = document.querySelector(`.${type}-count`);
     console.log(count);
-    if (e.target.classList.contains("empty") && parseInt(count.textContent) > 0 ){
+    if (e.target.classList.contains("empty") && parseInt(count.textContent) > 0) {
         e.target.classList.remove('empty');
         e.target.classList.add(type);
         let counterStr = count.textContent;
         counterStr = parseInt(counterStr) - 1 + "";
         count.textContent = counterStr;
-        
+
     }
 }
