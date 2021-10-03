@@ -1,5 +1,5 @@
 the app is a 2d clone of the game minecraft 
-in the app you add and remove blocks of material and beuld new shapes
+in the app you add and remove blocks of material and build new shapes
 
 I personally didn't found anything hard to implement
 
