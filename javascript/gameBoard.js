@@ -1,5 +1,4 @@
 import { chosingItem } from "./workItem.js";
-
 const GAME_BOARD_ROWS = 20;
 const GAME_BOARD_COLUMNS = 20;
 
@@ -38,7 +37,6 @@ function addBlock(gamebordTempet, gameBoard, row, column) {
             break;
     }
 }
-
 function addElement(type, gameBoard, row, column) {
     const block = document.createElement('div');
     block.classList.add(type);
@@ -48,20 +46,11 @@ function addElement(type, gameBoard, row, column) {
     block.style.gridColumnStart = ((column + 1));
     gameBoard.appendChild(block);
 }
-
-
 export function addEventToGrid(gameBoard) {
-
     gameBoard.addEventListener('click', clickHandle);
-
 }
-
 function clickHandle(e) {
-    console.log(e.target.classList);
-
-
     // let cloudCount = document.querySelector('.cloud-count');
-
     switch (chosingItem) {
         case 'axe':
             useAxe(e);
@@ -73,7 +62,6 @@ function clickHandle(e) {
             usePickaxe(e);
             break;
         case 'cloud':
-            console.log('cloud');
             changeIfIsNotEmpty(e, 'cloud');
             break;
         case 'ground':
@@ -94,26 +82,18 @@ function clickHandle(e) {
         case 'lava':
             changeIfIsNotEmpty(e, 'lava');
             break;
-
     }
 }
-
-
 function useAxe(e) {
-
     if (e.target.classList.contains("tree-leaves")) {
-
         let treeLeavesCount = document.querySelector('.tree-leaves-count');
         updateCountAndChangCssClasses(e, treeLeavesCount, 'tree-leaves', 'empty', '+');
-
     } else if (e.target.classList.contains("wood")) {
-
         let woodCount = document.querySelector('.wood-count');
         updateCountAndChangCssClasses(e, woodCount, 'wood', 'empty', '+');
     }
 }
 function useShove(e) {
-
     if (e.target.classList.contains("ground")) {
         let groundCount = document.querySelector('.ground-count');
         updateCountAndChangCssClasses(e, groundCount, 'ground', 'empty', '+');
@@ -124,7 +104,6 @@ function useShove(e) {
         }
 }
 function usePickaxe(e) {
-
     if (e.target.classList.contains("rock")) {
         let rocksCount = document.querySelector('.rock-count');
         updateCountAndChangCssClasses(e, rocksCount, 'rock', 'empty', '+');
@@ -136,20 +115,16 @@ function usePickaxe(e) {
 }
 function changeIfIsNotEmpty(e, type) {
     let count = document.querySelector(`.${type}-count`);
-    console.log(count);
     if (e.target.classList.contains("empty") && parseInt(count.textContent) > 0) {
         updateCountAndChangCssClasses(e, count, 'empty', type, '-');
     }
 }
-
 function updateCountAndChangCssClasses(event, count, cssClassToRemove, cssClassToAdd, plusOrMinus) {
     event.target.classList.remove(cssClassToRemove);
     event.target.classList.add(cssClassToAdd);
     if (plusOrMinus === "+") {
-
         count.textContent = parseInt(count.textContent) + 1 + "";
     } else if (plusOrMinus === "-") {
         count.textContent = parseInt(count.textContent) - 1 + "";
-
     }
 }

@@ -55,7 +55,6 @@
   border: blue 1px solid;
   opacity: 0.7;
 }
-
 .cloud {
   background: url("http://itc.yananas.com/git/minecraft/images/cloud.png")
     no-repeat center center/cover;
@@ -128,7 +127,6 @@
 }
 
 /* start page */
-
 .startPageContainer {
   display: flex;
   justify-content: center;

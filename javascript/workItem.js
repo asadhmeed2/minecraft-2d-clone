@@ -12,31 +12,25 @@ const treeLeaves = document.querySelector('.tree-leaves');
 const rocks = document.querySelector('.rock');
 const lava = document.querySelector('.lava');
 
-
 function itemChoosing(itemName) {
-    if(chosingItem.length>0){
-
-        let lastChosingItem =document.querySelector(`.${chosingItem}`);
+    if (chosingItem.length > 0) {
+        let lastChosingItem = document.querySelector(`.${chosingItem}`);
         let nextChosingItem = document.querySelector(`.${itemName}`);
         lastChosingItem.classList.remove('active');
         nextChosingItem.classList.add('active');
         chosingItem = itemName;
-        
-    }else{
+    } else {
         let nextChosingItem = document.querySelector(`.${itemName}`);
-        console.log(nextChosingItem);
         nextChosingItem.classList.add('active');
         chosingItem = itemName;
     }
 }
-
 export function addEventToWorkItems() {
-    if(chosingItem.length>0){
+    if (chosingItem.length > 0) {
         let lastChosingItem = document.querySelector(`.${chosingItem}`);
         lastChosingItem.classList.remove('active');
     }
-   chosingItem = "";
-
+    chosingItem = "";
     axe.addEventListener('click', () => itemChoosing("axe"));
     pickaxe.addEventListener('click', () => itemChoosing("pickaxe"));
     shovel.addEventListener('click', () => itemChoosing("shovel"));
