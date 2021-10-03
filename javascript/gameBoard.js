@@ -7,9 +7,7 @@ export function drow(gameboardTemplet, gameBoard) {
     for (let row = 0; row < gameboardTemplet.length; row++) {
         for (let column = 0; column < gameboardTemplet[row].length; column++) {
             addBlock(gameboardTemplet, gameBoard, row, column);
-
         }
-
     }
 }
 function addBlock(gamebordTempet, gameBoard, row, column) {
@@ -53,9 +51,9 @@ function addElement(type, gameBoard, row, column) {
 
 
 export function addEventToGrid(gameBoard) {
-    
+
     gameBoard.addEventListener('click', clickHandle);
-    
+
 }
 
 function clickHandle(e) {
@@ -106,70 +104,52 @@ function useAxe(e) {
     if (e.target.classList.contains("tree-leaves")) {
 
         let treeLeavesCount = document.querySelector('.tree-leaves-count');
-        e.target.classList.remove('tree-leaves');
-        e.target.classList.add('empty');
-        let counterStr = treeLeavesCount.textContent;
-        counterStr = parseInt(counterStr) + 1 + "";
-        treeLeavesCount.textContent = counterStr;
-
+        updateCountAndChangCssClasses(e, treeLeavesCount, 'tree-leaves', 'empty', '+');
 
     } else if (e.target.classList.contains("wood")) {
+
         let woodCount = document.querySelector('.wood-count');
-        e.target.classList.remove('wood');
-        e.target.classList.add('empty');
-        let counterStr = woodCount.textContent;
-        counterStr = parseInt(counterStr) + 1 + "";
-        woodCount.textContent = counterStr;
+        updateCountAndChangCssClasses(e, woodCount, 'wood', 'empty', '+');
     }
 }
 function useShove(e) {
 
     if (e.target.classList.contains("ground")) {
         let groundCount = document.querySelector('.ground-count');
-        e.target.classList.remove('ground');
-        e.target.classList.add('empty');
-        let counterStr = groundCount.textContent;
-        counterStr = parseInt(counterStr) + 1 + "";
-        groundCount.textContent = counterStr;
+        updateCountAndChangCssClasses(e, groundCount, 'ground', 'empty', '+');
     } else
         if (e.target.classList.contains("grass")) {
             let grassCount = document.querySelector('.grass-count');
-            e.target.classList.remove('grass');
-            e.target.classList.add('empty');
-            let counterStr = grassCount.textContent;
-            counterStr = parseInt(counterStr) + 1 + "";
-            grassCount.textContent = counterStr;
-
+            updateCountAndChangCssClasses(e, grassCount, 'grass', 'empty', '+');
         }
 }
 function usePickaxe(e) {
 
     if (e.target.classList.contains("rock")) {
         let rocksCount = document.querySelector('.rock-count');
-        e.target.classList.remove('rock');
-        e.target.classList.add('empty');
-        let counterStr = rocksCount.textContent;
-        counterStr = parseInt(counterStr) + 1 + "";
-        rocksCount.textContent = counterStr;
+        updateCountAndChangCssClasses(e, rocksCount, 'rock', 'empty', '+');
     }
     if (e.target.classList.contains("lava")) {
         let lavaCount = document.querySelector('.lava-count');
-        e.target.classList.remove('lava');
-        e.target.classList.add('empty');
-        let counterStr = lavaCount.textContent;
-        counterStr = parseInt(counterStr) + 1 + "";
-        lavaCount.textContent = counterStr;
+        updateCountAndChangCssClasses(e, lavaCount, 'lava', 'empty', '+');
     }
 }
 function changeIfIsNotEmpty(e, type) {
     let count = document.querySelector(`.${type}-count`);
     console.log(count);
     if (e.target.classList.contains("empty") && parseInt(count.textContent) > 0) {
-        e.target.classList.remove('empty');
-        e.target.classList.add(type);
-        let counterStr = count.textContent;
-        counterStr = parseInt(counterStr) - 1 + "";
-        count.textContent = counterStr;
+        updateCountAndChangCssClasses(e, count, 'empty', type, '-');
+    }
+}
+
+function updateCountAndChangCssClasses(event, count, cssClassToRemove, cssClassToAdd, plusOrMinus) {
+    event.target.classList.remove(cssClassToRemove);
+    event.target.classList.add(cssClassToAdd);
+    if (plusOrMinus === "+") {
+
+        count.textContent = parseInt(count.textContent) + 1 + "";
+    } else if (plusOrMinus === "-") {
+        count.textContent = parseInt(count.textContent) - 1 + "";
 
     }
 }

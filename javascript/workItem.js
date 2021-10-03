@@ -28,10 +28,6 @@ function itemChoosing(itemName) {
         nextChosingItem.classList.add('active');
         chosingItem = itemName;
     }
-
-
-    
-
 }
 
 export function addEventToWorkItems() {

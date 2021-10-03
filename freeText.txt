@@ -6,6 +6,7 @@ I personally didn't found anything hard to implement
 the bugs I tackled are 
 #css class name misspelled 
 #script type misspelled
+#                                              
 
 
 the assignment level is easy 
