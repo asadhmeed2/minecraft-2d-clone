@@ -4,7 +4,7 @@ const GAME_BOARD_COLUMNS = 20;
 
 export function drow(gameboardTemplet, gameBoard) {
     for (let row = 0; row < gameboardTemplet.length; row++) {
-        for (let column = 0; column < gameboardTemplet[row].length; column++) {
+        for (let column = 0; column < GAME_BOARD_COLUMNS; column++) {
             addBlock(gameboardTemplet, gameBoard, row, column);
         }
     }
