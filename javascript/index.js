@@ -1,9 +1,10 @@
 import { drow as drawGameBoard, addEventToGrid } from './gameBoard.js'
 import { addEventToWorkItems } from './workItem.js'
-
+import { generatGameBoard } from './generatGameWorld.js'
 
 
 function startGame() {
+    console.log(generatGameBoard());
     const gameboardTemplet = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -28,7 +29,7 @@ function startGame() {
     ]
     initializeStartBtn();
     const gameBoard = document.querySelector('.game-window');
-    drawGameBoard(gameboardTemplet, gameBoard);
+    drawGameBoard(generatGameBoard(), gameBoard);
     addEventToWorkItems();
     addEventToGrid(gameBoard);
     const reloadBtn = document.querySelector('.reload');
