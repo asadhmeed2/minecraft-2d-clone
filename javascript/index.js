@@ -4,7 +4,6 @@ import { generatGameBoard } from './generatGameWorld.js'
 
 
 function startGame() {
-    console.log(generatGameBoard());
     const gameboardTemplet = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -61,9 +60,7 @@ function reloadGame() {
 function initializeStartBtn() {
     const startBtn = document.querySelector('.startPageBtn');
     const startpage = document.querySelector('.startPageContainer');
-    console.log(startpage.style.zIndex);
     startBtn.addEventListener("click", () => {
-
         startpage.style.zIndex = "-1";
         startpage.style.opacity = "0";
     }
